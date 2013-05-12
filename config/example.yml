@@ -1,0 +1,23 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: guide_development
+  pool: 5
+  username: guide
+  password:
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: guide_test
+  pool: 5
+  username: guide
+  password:
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: guide_production
+  pool: 5
+  username: guide
+  password:
