@@ -1,4 +1,7 @@
 Guide::Application.routes.draw do
-  get "pages/home"
+  
+  get '/about' => 'pages#about'
+  
   root :to => 'pages#home'
+  
 end
