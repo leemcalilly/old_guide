@@ -17,7 +17,7 @@ describe "Pages" do
     it "has the right title" do
       visit root_path
       page.should have_selector('title',
-                          :text => "Home - The Fuzz Guide to Guitar")
+                          :text => "Home < The Fuzz Guide to Guitar")
     end
     
   end
@@ -37,7 +37,7 @@ describe "Pages" do
     it "has the right title" do
       visit about_path
       page.should have_selector('title',
-                          :text => "About Us - The Fuzz Guide to Guitar")
+                          :text => "About Us < The Fuzz Guide to Guitar")
     end
     
   end
