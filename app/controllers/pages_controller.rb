@@ -3,6 +3,8 @@ class PagesController < ApplicationController
   end
   
   def about
-    @page_title = "About Us"
+  end
+  
+  def how_it_works
   end
 end

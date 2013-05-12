@@ -42,4 +42,24 @@ describe "Pages" do
     
   end
   
+  describe "How it works" do
+  
+    it "renders the how it works page" do
+      visit how_it_works_path
+      page.status_code.should be(200)
+    end
+    
+    it "has the right content" do
+      visit how_it_works_path
+      page.should have_content("How It Works")
+    end
+    
+    it "has the right title" do
+      visit how_it_works_path
+      page.should have_selector('title',
+                          :text => "How It Works < The Fuzz Guide to Guitar")
+    end
+    
+  end
+  
 end
