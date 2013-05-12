@@ -1,13 +1,13 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.0.0.beta1'
-gem 'pg'
-gem 'unicorn'
-gem 'jquery-rails'
-gem 'turbolinks'
+gem 'rails', '~> 4.0.0.beta1'
+gem 'pg', '~> 0.15.1'
+gem 'unicorn', '~> 4.6.2'
+gem 'jquery-rails', '~> 2.2.1'
+gem 'turbolinks', '~> 1.1.1'
 gem 'jbuilder', '~> 1.0.1'
-gem 'foreman'
-gem 'rb-fsevent'
+gem 'foreman', '~> 0.63.0'
+gem 'rb-fsevent', '~> 0.9.3'
 
 group :assets do
   gem 'sass-rails',   '~> 4.0.0.beta1'
@@ -16,11 +16,11 @@ group :assets do
 end
 
 group :development, :test do
-  gem 'rspec-rails'
+  gem 'rspec-rails', '~> 2.13.1'
 end
 
 group :test do
-  gem "factory_girl_rails"
-  gem "capybara"
-  gem "guard-rspec"
+  gem "factory_girl_rails", '~> 4.2.1'
+  gem "capybara", '~> 2.1.0'
+  gem "guard-rspec", '~> 3.0.0'
 end

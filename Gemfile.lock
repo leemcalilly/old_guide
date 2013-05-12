@@ -176,18 +176,18 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  capybara
+  capybara (~> 2.1.0)
   coffee-rails (~> 4.0.0.beta1)
-  factory_girl_rails
-  foreman
-  guard-rspec
+  factory_girl_rails (~> 4.2.1)
+  foreman (~> 0.63.0)
+  guard-rspec (~> 3.0.0)
   jbuilder (~> 1.0.1)
-  jquery-rails
-  pg
-  rails (= 4.0.0.beta1)
-  rb-fsevent
-  rspec-rails
+  jquery-rails (~> 2.2.1)
+  pg (~> 0.15.1)
+  rails (~> 4.0.0.beta1)
+  rb-fsevent (~> 0.9.3)
+  rspec-rails (~> 2.13.1)
   sass-rails (~> 4.0.0.beta1)
-  turbolinks
+  turbolinks (~> 1.1.1)
   uglifier (>= 1.0.3)
-  unicorn
+  unicorn (~> 4.6.2)
