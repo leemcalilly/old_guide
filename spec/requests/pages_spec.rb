@@ -14,6 +14,12 @@ describe "Pages" do
       page.should have_content("The Fuzz Guide to Guitar")
     end
     
+    it "has the right title" do
+      visit root_path
+      page.should have_selector('title',
+                          :text => "Home - The Fuzz Guide to Guitar")
+    end
+    
   end
   
   describe "About Us" do
@@ -27,7 +33,13 @@ describe "Pages" do
       visit about_path
       page.should have_content("About Us")
     end
-  
+    
+    it "has the right title" do
+      visit about_path
+      page.should have_selector('title',
+                          :text => "About Us - The Fuzz Guide to Guitar")
+    end
+    
   end
   
 end
