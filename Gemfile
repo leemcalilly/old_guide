@@ -7,6 +7,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.0.1'
 gem 'foreman'
+gem 'rb-fsevent'
 
 group :assets do
   gem 'sass-rails',   '~> 4.0.0.beta1'

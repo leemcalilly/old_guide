@@ -185,6 +185,7 @@ DEPENDENCIES
   jquery-rails
   pg
   rails (= 4.0.0.beta1)
+  rb-fsevent
   rspec-rails
   sass-rails (~> 4.0.0.beta1)
   turbolinks
