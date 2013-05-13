@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Pages" do
+describe "Pages" do    
   
   describe "Home" do
     
@@ -18,6 +18,10 @@ describe "Pages" do
       visit root_path
       page.should have_selector('title',
                           :text => "Home < The Fuzz Guide to Guitar")
+    end
+    
+    it "has the right body class" do
+      pending
     end
     
   end
@@ -40,6 +44,9 @@ describe "Pages" do
                           :text => "About Us < The Fuzz Guide to Guitar")
     end
     
+    it "has the right body class" do
+      pending
+    end
   end
   
   describe "How it works" do
@@ -58,6 +65,10 @@ describe "Pages" do
       visit '/how-it-works'
       page.should have_selector('title',
                           :text => "How It Works < The Fuzz Guide to Guitar")
+    end
+    
+    it "has the right body class" do
+      pending
     end
     
   end

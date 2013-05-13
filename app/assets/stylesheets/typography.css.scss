@@ -1,0 +1,21 @@
+@import 'variables';
+
+a:visited {
+  color: $orange;
+}
+
+a:hover {
+  color: $white;
+  background: $blue;
+  text-decoration: none;
+}
+
+::selection { 
+  color: $white;
+  background: $blue;
+}
+
+::-moz-selection {
+  color: $white;
+  background: $blue; 
+}

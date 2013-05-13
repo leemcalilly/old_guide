@@ -11,6 +11,7 @@ gem 'turbolinks', '~> 1.1.1'
 gem 'jbuilder', '~> 1.0.1'
 gem 'foreman', '~> 0.63.0'
 gem 'rb-fsevent', '~> 0.9.3'
+gem 'bootstrap-sass', '~> 2.3.1'
 
 group :assets do
   gem 'sass-rails',   '~> 4.0.0.beta1'

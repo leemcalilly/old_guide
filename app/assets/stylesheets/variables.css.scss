@@ -1,0 +1,26 @@
+// These variables need to be imported to each stylesheet that you want to use them in
+
+$midnight: #2e333d;
+$orange: #be5045;
+$blue: #61718f;
+$navy: #303f5f;
+$black: #2e2c2d;
+$darkGray: #434843;
+$mediumGray: #757672;
+$gray: #b2b3b0;
+$lightGray: #deded9;
+$white: #ffffff;
+$tan: #f9f0d9;
+
+$sansFontFamily: Futura, "Trebuchet MS", Arial, sans-serif;
+$serifFontFamily: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+$baseFontFamily: $serifFontFamily;
+
+$headingsFontFamily: $serifFontFamily;
+$headingsColor: $navy;
+$linkColor: $orange;
+$textColor: $black;
+
+
+$navbarBackground: $midnight;
+$navbarBackgroundHighlight: $midnight;
