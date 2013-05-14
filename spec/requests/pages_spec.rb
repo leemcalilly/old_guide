@@ -5,23 +5,31 @@ describe "Pages" do
   describe "Home" do
     
     it "renders the home page" do
-      visit root_path
+      visit '/'
       page.status_code.should be(200)
     end
     
     it "has the right content" do
-      visit root_path
+      visit '/'
       page.should have_content("The Fuzz Guide to Guitar")
     end
     
     it "has the right title" do
-      visit root_path
+      visit '/'
       page.should have_selector('title',
                           :text => "Home < The Fuzz Guide to Guitar")
     end
     
     it "has the right body class" do
-      pending
+      visit '/'
+      page.should have_selector('body',
+                          :class => "pages")
+    end
+
+    it "has the right body id" do
+      visit '/'
+      page.should have_selector('body',
+                          :id => "home")
     end
     
   end
@@ -43,9 +51,17 @@ describe "Pages" do
       page.should have_selector('title',
                           :text => "About Us < The Fuzz Guide to Guitar")
     end
-    
+
     it "has the right body class" do
-      pending
+      visit '/about'
+      page.should have_selector('body',
+                          :class => "pages")
+    end
+
+    it "has the right body id" do
+      visit '/about'
+      page.should have_selector('body',
+                          :id => "about")
     end
   end
   
@@ -68,9 +84,15 @@ describe "Pages" do
     end
     
     it "has the right body class" do
-      pending
+      visit '/how-it-works'
+      page.should have_selector('body',
+                          :class => "pages")
     end
     
+    it "has the right body id" do
+      visit '/how-it-works'
+      page.should have_selector('body',
+                          :id => "how_it_works")
+    end    
   end
-  
 end

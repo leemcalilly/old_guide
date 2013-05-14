@@ -7,7 +7,7 @@
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
-<body class="<%= params[:controller] %>">
+<body id="<%= params[:action] %>" class="<%= params[:controller] %>">
 
 <%= render "layouts/nav" %>
   
