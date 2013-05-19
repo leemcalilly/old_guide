@@ -21,6 +21,10 @@ end
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.13.1'
+  gem 'launchy', '~> 2.3.0'
+  gem 'database_cleaner', '~> 1.0.1'
+  
+  '~> 1.0.1'
 end
 
 group :test do

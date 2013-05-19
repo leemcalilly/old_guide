@@ -25,7 +25,7 @@ class LessonsController < ApplicationController
 
     respond_to do |format|
       if @lesson.save
-        format.html { redirect_to @lesson, notice: 'Lesson was successfully created.' }
+        format.html { redirect_to @lesson, notice: 'Lesson created!' }
       else
         format.html { render action: 'new' }
       end
@@ -36,7 +36,7 @@ class LessonsController < ApplicationController
   def update
     respond_to do |format|
       if @lesson.update(lesson_params)
-        format.html { redirect_to @lesson, notice: 'Lesson was successfully updated.' }
+        format.html { redirect_to @lesson, notice: 'Lesson updated!' }
       else
         format.html { render action: 'edit' }
       end

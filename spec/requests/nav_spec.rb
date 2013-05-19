@@ -10,8 +10,4 @@ describe "Main nav" do
       end
     end
   end
-  
-  describe "Logged Out" do
-    pending
-  end
 end
