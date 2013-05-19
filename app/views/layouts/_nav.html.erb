@@ -6,7 +6,11 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </a>
-      <%= link_to "Home", root_path, :class => "brand" %>
+
+			<ul id="main_nav" class="unstyled">
+      	<li><%= link_to "Home", root_path, :class => "brand" %></li>
+				<li><%= link_to "Lessons", lessons_path %></li>
+			</ul>
       
       <div class="nav-collapse">
         <ul class="nav">

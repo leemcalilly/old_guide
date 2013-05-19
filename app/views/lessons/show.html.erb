@@ -1,0 +1,62 @@
+<% provide(:title, @lesson.title ) %>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @lesson.title %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @lesson.date %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @lesson.description %>
+</p>
+
+<p>
+  <strong>Featured photo:</strong>
+  <%= @lesson.featured_photo %>
+</p>
+
+<p>
+  <strong>Level:</strong>
+  <%= @lesson.level %>
+</p>
+
+<p>
+  <strong>Genre:</strong>
+  <%= @lesson.genre %>
+</p>
+
+<p>
+  <strong>Topic:</strong>
+  <%= @lesson.topic %>
+</p>
+
+<p>
+  <strong>Article:</strong>
+  <%= @lesson.article %>
+</p>
+
+<p>
+  <strong>Video:</strong>
+  <%= @lesson.video %>
+</p>
+
+<p>
+  <strong>Resources:</strong>
+  <%= @lesson.resources %>
+</p>
+
+<p>
+  <strong>Visibility:</strong>
+  <%= @lesson.visibility %>
+</p>
+
+
+<%= link_to 'Edit', edit_lesson_path(@lesson) %> |
+<%= link_to 'Back', lessons_path %>

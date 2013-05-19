@@ -1,0 +1,49 @@
+<% provide(:title, 'Lessons') %>
+
+<h1>Listing lessons</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Date</th>
+      <th>Description</th>
+      <th>Featured photo</th>
+      <th>Level</th>
+      <th>Genre</th>
+      <th>Topic</th>
+      <th>Article</th>
+      <th>Video</th>
+      <th>Resources</th>
+      <th>Visibility</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @lessons.each do |lesson| %>
+    <tr>
+      <td><%= lesson.title %></td>
+      <td><%= lesson.date %></td>
+      <td><%= lesson.description %></td>
+      <td><%= lesson.featured_photo %></td>
+      <td><%= lesson.level %></td>
+      <td><%= lesson.genre %></td>
+      <td><%= lesson.topic %></td>
+      <td><%= lesson.article %></td>
+      <td><%= lesson.video %></td>
+      <td><%= lesson.resources %></td>
+      <td><%= lesson.visibility %></td>
+      <td><%= link_to 'Show', lesson %></td>
+      <td><%= link_to 'Edit', edit_lesson_path(lesson) %></td>
+      <td><%= link_to 'Destroy', lesson, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br />
+
+<%= link_to 'New Lesson', new_lesson_path %>
