@@ -16,10 +16,14 @@ ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 
 RSpec.configure do |config|
   
-  config.before(:suite) do
-    DatabaseCleaner.strategy = :transaction
-    DatabaseCleaner.clean_with(:truncation)
-  end
+  # Include the Capybara DSL so that specs in spec/requests still work.
+  config.include Capybara::DSL
+
+  # Factory Girl
+  config.include FactoryGirl::Syntax::Methods
+    
+  # Database Cleaner
+  DatabaseCleaner.strategy = :truncation
 
   config.before(:each) do
     DatabaseCleaner.start
@@ -29,17 +33,6 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
   
-  # ## Mock Framework
-  #
-  # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:
-  #
-  # config.mock_with :mocha
-  # config.mock_with :flexmock
-  # config.mock_with :rr
-
-  # If you're not using ActiveRecord, or you'd prefer not to run each of your
-  # examples within a transaction, remove the following line or assign false
-  # instead of true.
   config.use_transactional_fixtures = true
 
   # If true, the base class of anonymous controllers will be inferred

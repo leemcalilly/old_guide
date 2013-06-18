@@ -27,6 +27,6 @@ end
 
 group :test do
   gem "factory_girl_rails", '~> 4.2.1'
-  gem "capybara", '~> 1.1.2'
+  gem "capybara", '~> 2.1.0'
   gem "guard-rspec", '~> 3.0.0'
 end

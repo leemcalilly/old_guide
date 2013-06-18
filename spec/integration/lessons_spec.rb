@@ -22,6 +22,11 @@ describe "Lessons" do
     page.should have_content("Lesson created!")
   end
   
+  it "has the right title on the new lesson page" do
+    visit new_lesson_path
+    page.should have_title("New Lesson < The Fuzz Guide to Guitar")
+  end
+  
   describe "viewing and editing lessons" do
     before(:each) do 
       @lesson = FactoryGirl.create(:lesson)
@@ -29,22 +34,34 @@ describe "Lessons" do
     end
   
     it "shows lessons on the index page" do
-        current_path == '/lessons'
-        page.should have_content("Lessons")
-        page.should have_content(@lesson.title)
+      current_path == '/lessons'
+      page.should have_content("Lessons")
+      page.should have_content(@lesson.title)
+    end
+    
+    it "has the right title on the lessons index page" do
+      page.should have_title("All Lessons < The Fuzz Guide to Guitar")
     end
   
     it "allows you to navigate to the lesson show page" do
-        click_link "Show"
-        page.should have_content(@lesson.title)
+      click_link "Show"
+      page.should have_content(@lesson.title)
+    end
+    
+    it "has the right title on the lesson show page" do
+      page.should have_title(@lesson.title + " < The Fuzz Guide to Guitar")
     end
     
     it "allows you to edit lessons" do
-        click_link "Edit"
-        page.should have_content("Edit Lesson")
-        fill_in "Title", :with => "Changing the Title"
-        click_button "Update Lesson"
-        page.should have_content("Lesson updated!")
+      click_link "Edit"
+      page.should have_content("Edit Lesson")
+      fill_in "Title", :with => "Changing the Title"
+      click_button "Update Lesson"
+      page.should have_content("Lesson updated!")
+    end
+    
+    it "has the right title on the lessons edit page" do
+      page.should have_title("Edit Lessons < The Fuzz Guide to Guitar")
     end
     
     it "allows you to delete lessons" do        

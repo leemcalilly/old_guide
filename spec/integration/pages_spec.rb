@@ -16,8 +16,7 @@ describe "Pages" do
     
     it "has the right title" do
       visit '/'
-      page.should have_selector('title',
-                          :text => "Home < The Fuzz Guide to Guitar")
+      page.should have_title("Home < The Fuzz Guide to Guitar")
     end
     
     it "has the right body class" do
@@ -48,8 +47,7 @@ describe "Pages" do
     
     it "has the right title" do
       visit '/about'
-      page.should have_selector('title',
-                          :text => "About Us < The Fuzz Guide to Guitar")
+      page.should have_title("About Us < The Fuzz Guide to Guitar")
     end
 
     it "has the right body class" do
@@ -79,8 +77,7 @@ describe "Pages" do
     
     it "has the right title" do
       visit '/how-it-works'
-      page.should have_selector('title',
-                          :text => "How It Works < The Fuzz Guide to Guitar")
+      page.should have_title("How It Works < The Fuzz Guide to Guitar")
     end
     
     it "has the right body class" do
