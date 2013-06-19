@@ -21,14 +21,12 @@ describe "Pages" do
     
     it "has the right body class" do
       visit '/'
-      page.should have_selector('body',
-                          :class => "pages")
+      page.should have_css('body.pages')
     end
 
     it "has the right body id" do
       visit '/'
-      page.should have_selector('body',
-                          :id => "home")
+      page.should have_css('body#home')
     end
     
   end
@@ -52,14 +50,12 @@ describe "Pages" do
 
     it "has the right body class" do
       visit '/about'
-      page.should have_selector('body',
-                          :class => "pages")
+      page.should have_css('body.pages')
     end
 
     it "has the right body id" do
       visit '/about'
-      page.should have_selector('body',
-                          :id => "about")
+      page.should have_css('body#about')
     end
   end
   
@@ -82,14 +78,12 @@ describe "Pages" do
     
     it "has the right body class" do
       visit '/how-it-works'
-      page.should have_selector('body',
-                          :class => "pages")
+      page.should have_css('body.pages')
     end
     
     it "has the right body id" do
       visit '/how-it-works'
-      page.should have_selector('body',
-                          :id => "how_it_works")
+      page.should have_css('body#how_it_works')
     end    
   end
 end
