@@ -40,7 +40,8 @@ describe "Lessons" do
     end
     
     it "has the right title on the lessons index page" do
-      page.should have_title("All Lessons < The Fuzz Guide to Guitar")
+      page.should have_title("Lessons < The Fuzz Guide to Guitar")
+      
     end
   
     it "allows you to navigate to the lesson show page" do
@@ -49,7 +50,8 @@ describe "Lessons" do
     end
     
     it "has the right title on the lesson show page" do
-      page.should have_title(@lesson.title + " < The Fuzz Guide to Guitar")
+      click_link "Show"
+      page.should have_title("#{@lesson.title}" + " < The Fuzz Guide to Guitar")
     end
     
     it "allows you to edit lessons" do
@@ -61,7 +63,8 @@ describe "Lessons" do
     end
     
     it "has the right title on the lessons edit page" do
-      page.should have_title("Edit Lessons < The Fuzz Guide to Guitar")
+      click_link "Edit"
+      page.should have_title("Edit Lesson < The Fuzz Guide to Guitar")
     end
     
     it "allows you to delete lessons" do        
