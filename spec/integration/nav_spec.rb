@@ -12,7 +12,7 @@ describe "Main nav" do
     end
   end
   
-  described 'Logged Out' do
+  describe 'Logged Out' do
     it "should have the right links in the main nav" do
       pending
     end
