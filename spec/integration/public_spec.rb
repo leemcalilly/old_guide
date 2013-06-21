@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Pages" do    
+describe "Public" do    
   
   describe "Home" do
     
@@ -21,7 +21,7 @@ describe "Pages" do
     
     it "has the right body class" do
       visit '/'
-      page.should have_css('body.pages')
+      page.should have_css('body.public')
     end
 
     it "has the right body id" do
@@ -50,7 +50,7 @@ describe "Pages" do
 
     it "has the right body class" do
       visit '/about'
-      page.should have_css('body.pages')
+      page.should have_css('body.public')
     end
 
     it "has the right body id" do
@@ -78,7 +78,7 @@ describe "Pages" do
     
     it "has the right body class" do
       visit '/how-it-works'
-      page.should have_css('body.pages')
+      page.should have_css('body.public')
     end
     
     it "has the right body id" do
