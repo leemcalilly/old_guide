@@ -1,0 +1,10 @@
+<% provide(:title, 'Forgot Password') %>
+
+<h1>Can't sign in? Forget your password?</h1>
+
+<%= form_tag password_resets_path, :method => :post do %>
+  <div class="field">
+    <%= label_tag :email %><br />
+    <%= text_field_tag :email %> <%= submit_tag "Reset my password!" %>
+  </div>
+<% end %>

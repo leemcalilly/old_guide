@@ -7,7 +7,11 @@ module ApplicationHelper
   def app_domain
     'fuzzguide.com'
   end
-
+  
+  def system_email
+    'hello@originalfuzz.com'
+  end
+  
   # Returns the full title on a per-page basis.
   def full_title(page_title)
     base_title = "#{app_name}"
@@ -16,5 +20,15 @@ module ApplicationHelper
     else
       "#{page_title} < #{base_title}"
     end
-  end  
+  end
+  
+  def flash_class(level)
+    case level
+      when :notice then "alert alert-success"
+      when :success then "alert alert-success"
+      when :error then "alert alert-error"
+      when :alert then "alert alert-error"
+    end
+  end
+  
 end

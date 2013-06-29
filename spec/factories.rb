@@ -12,4 +12,10 @@ FactoryGirl.define do
     resources         "Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows."
     visibility        "Published"
   end
+  
+  factory :user do
+    sequence(:email)        { |n| "person_#{n}@example.com"}
+    password                "secret"
+    password_confirmation   "secret"
+  end
 end

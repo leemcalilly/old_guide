@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 def create_new_lesson
+  signup_and_login
   @new_lesson = FactoryGirl.build(:lesson)
   visit new_lesson_path
   fill_in "Title", :with => "How to Play a G Chord"
@@ -18,4 +19,15 @@ def create_new_lesson
   fill_in "Visibility", :with => @new_lesson.visibility
   click_button "Create Lesson"
   page.should have_content("Lesson created!")
+end
+
+def signup_and_login
+  user = FactoryGirl.build(:user)
+  visit signup_path
+  fill_in "Email", :with => user.email
+  fill_in "Password", :with => user.password
+  fill_in "Password confirmation", :with => user.password_confirmation
+  click_button "Create User"
+  current_path.should == "/lessons"
+  page.should have_content("Signed up!")
 end

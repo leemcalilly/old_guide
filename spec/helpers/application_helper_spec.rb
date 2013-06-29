@@ -22,4 +22,8 @@ describe ApplicationHelper do
   it "has the right domain name" do
     app_domain == "fuzzguide.com"
   end
+  
+  it "has the right system email" do
+    system_email == "fuzzguide@gmail.com"
+  end
 end

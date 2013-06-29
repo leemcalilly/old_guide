@@ -16,6 +16,9 @@ ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 
 RSpec.configure do |config|
   
+  # Sorcery
+  config.include Sorcery::TestHelpers::Rails
+    
   # Include the Capybara DSL so that specs in spec/requests still work.
   config.include Capybara::DSL
 
@@ -45,4 +48,9 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
+  
+  # Used for testing mailers
+  config.include(MailerMacros)
+  config.before(:each) { reset_email }
+
 end
