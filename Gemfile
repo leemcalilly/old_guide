@@ -13,6 +13,7 @@ gem 'foreman', '~> 0.63.0'
 gem 'rb-fsevent', '~> 0.9.3'
 gem 'bootstrap-sass', '~> 2.3.1'
 gem 'sorcery', github: 'NoamB/sorcery', branch: 'master'
+gem 'rolify', '~> 3.2.0'
 
 group :assets do
   gem 'sass-rails',   '~> 4.0.0'
