@@ -14,6 +14,7 @@ gem 'rb-fsevent', '~> 0.9.3'
 gem 'bootstrap-sass', '~> 2.3.1'
 gem 'sorcery', github: 'NoamB/sorcery', branch: 'master'
 gem 'rolify', '~> 3.2.0'
+gem 'cancan', '~> 1.6.10'
 
 group :assets do
   gem 'sass-rails',   '~> 4.0.0'

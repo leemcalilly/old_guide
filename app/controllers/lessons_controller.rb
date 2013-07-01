@@ -1,4 +1,6 @@
 class LessonsController < ApplicationController
+  load_and_authorize_resource
+  
   before_filter :require_login
   before_action :set_lesson, only: [:show, :edit, :update, :destroy]
   
