@@ -37,8 +37,14 @@
       <td><%= lesson.resources %></td>
       <td><%= lesson.visibility %></td>
       <td><%= link_to 'Show', lesson %></td>
-      <td><%= link_to 'Edit', edit_lesson_path(lesson) %></td>
-      <td><%= link_to 'Destroy', lesson, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			<% if can? :update, @lesson %>
+      	<td><%= link_to 'Edit', edit_lesson_path(lesson) %></td>
+			<% end %>
+			
+			<% if can? :destroy, @lesson %>
+      	<td><%= link_to 'Destroy', lesson, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			<% end %>
+			
     </tr>
     <% end %>
   </tbody>
@@ -46,4 +52,6 @@
 
 <br />
 
-<%= link_to 'New Lesson', new_lesson_path %>
+<% if can? :create, @lesson %>
+	<%= link_to 'New Lesson', new_lesson_path %>
+<% end %>

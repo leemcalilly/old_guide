@@ -9,6 +9,26 @@ describe "Lessons" do
     end
   end
   
+  it "shows the right links to admin users" do
+    create_new_lesson
+    visit '/lessons'
+    page.should have_link("Show")
+    page.should have_link("Edit")
+    page.should have_link("Destroy")
+    page.should have_link("New Lesson")
+  end
+  
+  it "shows the right links to normal users" do
+    create_new_lesson
+    visit logout_path
+    signup_and_login
+    visit '/lessons'
+    page.should have_link("Show")
+    page.should_not have_link("Edit")
+    page.should_not have_link("Destroy")
+    page.should_not have_link("New Lesson")
+  end
+  
   describe "New lesson" do
     before(:each) do
       signup_and_login_admin
@@ -140,11 +160,11 @@ describe "Lessons" do
   end
   
   it "doesn't allow regular users to edit lessons" do
+    create_new_lesson
+    visit logout_path
     signup_and_login
-    FactoryGirl.create(:lesson)
     @lesson = Lesson.last
-    visit '/lessons'
-    click_link "Edit"
+    visit edit_lesson_path(@lesson)
     current_path.should == '/lessons'
     within('div.alert.alert-error') do
       page.should have_content("Whoops! You don't have permission to access this.")
