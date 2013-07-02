@@ -1,4 +1,14 @@
 FactoryGirl.define do
+  factory :user do
+    sequence(:email)        { |n| "person_#{n}@example.com"}
+    password                "secret"
+    password_confirmation   "secret"
+    
+    factory :admin do
+      after(:create) {|user| user.add_role(:admin)}
+    end
+  end
+  
   factory :lesson do
     sequence(:title)  { |n| "Example Lesson No. #{n}"}
     date              "2013-05-19"        
@@ -11,11 +21,5 @@ FactoryGirl.define do
     video             "Your bones don't break, mine do. That's clear. Your cells react to bacteria and viruses differently than mine. You don't get sick, I do. That's also clear. But for some reason, you and I react the exact same way to water. We swallow it too fast, we choke. We get some in our lungs, we drown. However unreal it may seem, we are connected, you and I. We're on the same curve, just on opposite ends."
     resources         "Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows."
     visibility        "Published"
-  end
-  
-  factory :user do
-    sequence(:email)        { |n| "person_#{n}@example.com"}
-    password                "secret"
-    password_confirmation   "secret"
   end
 end

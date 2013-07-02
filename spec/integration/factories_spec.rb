@@ -33,6 +33,35 @@ describe "Factories" do
     end
   end
   
+  describe "Admin" do
+    it "has a valid admin factory" do
+      user = FactoryGirl.create(:admin)
+      user.should be_valid
+    end
+    
+    it "adds an admin role" do
+      user = FactoryGirl.build(:user)
+      visit signup_path
+      fill_in "Email", :with => user.email
+      fill_in "Password", :with => user.password
+      fill_in "Password confirmation", :with => user.password_confirmation
+      click_button "Create User"
+      current_path.should == "/lessons"
+      page.should have_content("Signed up!")
+      admin = User.last
+      admin.add_role :admin
+      admin.has_role? :admin
+    end
+    
+    it "the signup_and_login_admin utility method works" do
+      signup_and_login_admin
+      current_path.should == "/lessons"
+      page.should have_content("Signed up!")
+      admin = User.last
+      admin.has_role? :admin
+    end
+  end
+  
   describe "Lesson" do
     it "has a valid lessons factory" do
       lesson = FactoryGirl.create(:lesson)

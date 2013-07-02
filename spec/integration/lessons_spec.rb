@@ -2,13 +2,20 @@ require 'spec_helper'
 
 describe "Lessons" do
   
+  it "denies non-logged in users access to lessons" do
+    visit '/lessons'
+    within("div.alert.alert-error") do
+      page.should have_content("First log in to view this page.")
+    end
+  end
+  
   describe "New lesson" do
     before(:each) do
-      signup_and_login
+      signup_and_login_admin
       visit '/lessons/new'
     end
   
-    it "allows you to create new lessons" do
+    it "allows admin users to create new lessons" do
       @new_lesson = FactoryGirl.build(:lesson)
       fill_in "Title", :with => "How to Play a G Chord"
       select "2013", :from => "lesson_date_1i"
@@ -40,15 +47,24 @@ describe "Lessons" do
     end
   end
   
+  it "doesn't allow regular users to create lessons" do
+    signup_and_login
+    visit '/lessons/new'
+    within('div.alert.alert-error') do
+      page.should have_content("Whoops! You don't have permission to access this.")
+    end
+  end
+  
   describe "lessons index" do
     before(:each) do 
+      create_new_lesson
+      visit logout_path
       signup_and_login
-      FactoryGirl.create(:lesson)
       @lesson = Lesson.last
       visit '/lessons'
     end
   
-    it "shows lessons on the index page" do
+    it "shows lessons to all logged in users on the index page" do
       current_path.should == '/lessons'
       page.should have_content("Lessons")
       page.should have_content(@lesson.title)
@@ -69,8 +85,9 @@ describe "Lessons" do
   
   describe "showing lessons" do
     before(:each) do
+      create_new_lesson
+      visit logout_path
       signup_and_login
-      FactoryGirl.create(:lesson)
       @lesson = Lesson.last
       visit '/lessons'
       click_link "Show"
@@ -95,14 +112,14 @@ describe "Lessons" do
   
   describe "editing lessons" do
     before(:each) do
-      signup_and_login
+      signup_and_login_admin
       FactoryGirl.create(:lesson)
       @lesson = Lesson.last
       visit '/lessons'
       click_link "Edit"
     end
     
-    it "allows you to edit lessons" do
+    it "allows admin users to edit lessons" do
       page.should have_content("Edit Lesson")
       fill_in "Title", :with => "Changing the Title"
       click_button "Update Lesson"
@@ -121,20 +138,43 @@ describe "Lessons" do
       page.should have_css('body#edit')
     end
   end
+  
+  it "doesn't allow regular users to edit lessons" do
+    signup_and_login
+    FactoryGirl.create(:lesson)
+    @lesson = Lesson.last
+    visit '/lessons'
+    click_link "Edit"
+    current_path.should == '/lessons'
+    within('div.alert.alert-error') do
+      page.should have_content("Whoops! You don't have permission to access this.")
+    end
+  end
     
   describe "deleting lessons" do
     before(:each) do
-      signup_and_login
+      signup_and_login_admin
       FactoryGirl.create(:lesson)
       @lesson = Lesson.last
       visit '/lessons'
     end
     
-    it "allows you to delete lessons" do        
+    it "allows admin users to delete lessons" do        
       expect { delete lesson_path(@lesson), {},
          'HTTP_COOKIE' =>
          "#{Capybara.current_session.driver.response.headers["Set-Cookie"]}" }.
           to change(Lesson, :count).by(-1)
     end
+  end
+  
+  it "doesn't allow regular users to delete lessons" do
+    signup_and_login
+    FactoryGirl.create(:lesson)
+    @lesson = Lesson.last
+    visit '/lessons'
+    expect { delete lesson_path(@lesson), {},
+       'HTTP_COOKIE' =>
+       "#{Capybara.current_session.driver.response.headers["Set-Cookie"]}" }.
+        to change(Lesson, :count).by(0)
   end
 end

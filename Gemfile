@@ -23,13 +23,10 @@ group :assets do
 end
 
 group :development, :test do
+  gem "capybara", '~> 2.1.0'
   gem 'rspec-rails', '~> 2.13.1'
   gem 'launchy', '~> 2.3.0'
   gem 'database_cleaner', '~> 1.0.1'
-end
-
-group :test do
   gem "factory_girl_rails", '~> 4.2.1'
-  gem "capybara", '~> 2.1.0'
   gem "guard-rspec", '~> 3.0.0'
 end

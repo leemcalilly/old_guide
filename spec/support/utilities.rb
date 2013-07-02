@@ -1,9 +1,9 @@
 require 'spec_helper'
 
 def create_new_lesson
-  signup_and_login
-  @new_lesson = FactoryGirl.build(:lesson)
+  signup_and_login_admin
   visit new_lesson_path
+  @new_lesson = FactoryGirl.build(:lesson)
   fill_in "Title", :with => "How to Play a G Chord"
   select "2013", :from => "lesson_date_1i"
   select "June", :from => "lesson_date_2i"
@@ -30,4 +30,18 @@ def signup_and_login
   click_button "Create User"
   current_path.should == "/lessons"
   page.should have_content("Signed up!")
+end
+
+def signup_and_login_admin
+  user = FactoryGirl.build(:user)
+  visit signup_path
+  fill_in "Email", :with => user.email
+  fill_in "Password", :with => user.password
+  fill_in "Password confirmation", :with => user.password_confirmation
+  click_button "Create User"
+  current_path.should == "/lessons"
+  page.should have_content("Signed up!")
+  admin = User.last
+  admin.add_role :admin
+  admin.has_role? :admin
 end
