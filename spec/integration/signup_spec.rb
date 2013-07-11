@@ -24,7 +24,6 @@ describe "Sign up" do
     it "signs up a new user and logs them in on signup" do
       fill_in "Email", :with => "deedee@ramones.com"
       fill_in "Password", :with => "rockawaybeach"
-      fill_in "Password confirmation", :with => "rockawaybeach"
       click_button "Create User"
       page.should have_css("body.lessons")
       within("div.alert.alert-success") do
@@ -39,7 +38,6 @@ describe "Sign up" do
       visit signup_path
       fill_in "Email",        :with => ""
       fill_in "Password",     :with => ""
-      fill_in "Password confirmation", :with => ""
       click_button "Create User"
       current_path.should == "/users"
       within("div.error_messages") do

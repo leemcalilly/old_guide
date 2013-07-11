@@ -17,7 +17,6 @@ describe "Login" do
       visit signup_path
       fill_in "Email", :with => "deedee@ramones.com"
       fill_in "Password", :with => "rockawaybeach"
-      fill_in "Password confirmation", :with => "rockawaybeach"
       click_button "Create User"
       page.should have_content("Signed up!")
       visit logout_path

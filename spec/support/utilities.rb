@@ -26,7 +26,6 @@ def signup_and_login
   visit signup_path
   fill_in "Email", :with => user.email
   fill_in "Password", :with => user.password
-  fill_in "Password confirmation", :with => user.password_confirmation
   click_button "Create User"
   current_path.should == "/lessons"
   page.should have_content("Signed up!")
@@ -37,7 +36,6 @@ def signup_and_login_admin
   visit signup_path
   fill_in "Email", :with => user.email
   fill_in "Password", :with => user.password
-  fill_in "Password confirmation", :with => user.password_confirmation
   click_button "Create User"
   current_path.should == "/lessons"
   page.should have_content("Signed up!")
