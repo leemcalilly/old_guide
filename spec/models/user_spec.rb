@@ -5,14 +5,12 @@ describe User do
   before(:each) do
     @attr = {
       :email => "joey@ramones.com",
-      :password => "rockawaybeach",
-      :password_confirmation => "rockawaybeach",
+      :password => "rockawaybeach"
     }
   end
   
   it { should respond_to(:email) }
   it { should respond_to(:password) }
-  it { should respond_to(:password_confirmation) }
   
   it "creates a new instance given a valid attribute" do
     User.create!(@attr)
@@ -62,32 +60,23 @@ describe User do
     it "has a password" do
       @user.should respond_to(:password)
     end
-
-    it "has a password confirmation" do
-      @user.should respond_to(:password_confirmation)
-    end
   end
   
   describe "password validations" do
     it "requires a password" do
-      User.new(@attr.merge(:password => "", :password_confirmation => "")).
-        should_not be_valid
-    end
-
-    it "requires a matching password confirmation" do
-      User.new(@attr.merge(:password_confirmation => "invalid")).
+      User.new(@attr.merge(:password => "")).
         should_not be_valid
     end
 
     it "rejects short passwords" do
       short = "a" * 3
-      hash = @attr.merge(:password => short, :password_confirmation => short)
+      hash = @attr.merge(:password => short)
       User.new(hash).should_not be_valid
     end
 
     it "rejects long passwords" do
       long = "a" * 41
-      hash = @attr.merge(:password => long, :password_confirmation => long)
+      hash = @attr.merge(:password => long)
       User.new(hash).should_not be_valid
     end
   end

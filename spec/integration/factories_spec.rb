@@ -13,7 +13,6 @@ describe "Factories" do
       visit signup_path
       fill_in "Email", :with => user.email
       fill_in "Password", :with => user.password
-      fill_in "Password confirmation", :with => user.password_confirmation
       click_button "Create User"
       current_path.should == "/lessons"
       page.should have_content("Signed up!")
@@ -44,7 +43,6 @@ describe "Factories" do
       visit signup_path
       fill_in "Email", :with => user.email
       fill_in "Password", :with => user.password
-      fill_in "Password confirmation", :with => user.password_confirmation
       click_button "Create User"
       current_path.should == "/lessons"
       page.should have_content("Signed up!")

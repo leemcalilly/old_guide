@@ -17,15 +17,11 @@
 	  <% end %>
 	  <div class="field">
 	    <%= f.label :email %>
-	    <%= f.text_field :email %>
+	    <%= f.text_field :email, :placeholder => "joey@ramones.com" %>
 	  </div>
 	  <div class="field">
 	    <%= f.label :password %>
-	    <%= f.password_field :password %>
-	  </div>
-	  <div class="field">
-	    <%= f.label :password_confirmation %>
-	    <%= f.password_field :password_confirmation %>
+	    <%= f.password_field :password, :placeholder => "rockawaybeach77" %>
 	  </div>
 	  <div class="actions"><%= f.submit %></div>
 	<% end %>
