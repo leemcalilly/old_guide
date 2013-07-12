@@ -55,7 +55,7 @@ describe "Navbar" do
     it "should have the right links in the utility nav" do
       within('#utility-nav') do
         user = User.last
-        page.should have_content("Welcome back, " + user.email)
+        page.should have_content("Welcome back, " + user.name)
         page.should have_link('Log Out')
       end
     end
@@ -74,7 +74,7 @@ describe "Navbar" do
     
     it "has a working welcome back link" do
       user = User.last
-      click_link("Welcome back, " + user.email)
+      click_link("Welcome back, " + user.name)
       current_path == '/lessons'
       page.should have_content("All Lessons")
     end

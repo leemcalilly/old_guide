@@ -24,6 +24,7 @@ end
 def signup_and_login
   user = FactoryGirl.build(:user)
   visit signup_path
+  fill_in "Name", :with => user.name
   fill_in "Email", :with => user.email
   fill_in "Password", :with => user.password
   click_button "Create User"
@@ -34,6 +35,7 @@ end
 def signup_and_login_admin
   user = FactoryGirl.build(:user)
   visit signup_path
+  fill_in "Name", :with => user.name
   fill_in "Email", :with => user.email
   fill_in "Password", :with => user.password
   click_button "Create User"

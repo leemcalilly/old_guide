@@ -4,11 +4,13 @@ describe User do
   
   before(:each) do
     @attr = {
+      :name => "Joey Ramone",
       :email => "joey@ramones.com",
       :password => "rockawaybeach"
     }
   end
   
+  it { should respond_to(:name) }
   it { should respond_to(:email) }
   it { should respond_to(:password) }
   
@@ -17,6 +19,11 @@ describe User do
   end
   
   describe "emails" do
+    it "requires a name" do
+      no_name_user = User.new(@attr.merge(:name => ""))
+      no_name_user.should_not be_valid
+    end
+    
     it "requires an email address" do
       no_email_user = User.new(@attr.merge(:email => ""))
       no_email_user.should_not be_valid

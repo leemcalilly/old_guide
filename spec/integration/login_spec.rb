@@ -15,6 +15,7 @@ describe "Login" do
   describe "the login process works as expected" do
     before(:each) do
       visit signup_path
+      fill_in "Name", :with => "Dee Dee Ramone"
       fill_in "Email", :with => "deedee@ramones.com"
       fill_in "Password", :with => "rockawaybeach"
       click_button "Create User"

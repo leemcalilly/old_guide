@@ -11,6 +11,7 @@ describe "Factories" do
     it "signs up and logs in a factory girl user" do
       user = FactoryGirl.build(:user)
       visit signup_path
+      fill_in "Name", :with => user.name
       fill_in "Email", :with => user.email
       fill_in "Password", :with => user.password
       click_button "Create User"
@@ -41,6 +42,7 @@ describe "Factories" do
     it "adds an admin role" do
       user = FactoryGirl.build(:user)
       visit signup_path
+      fill_in "Name", :with => user.name
       fill_in "Email", :with => user.email
       fill_in "Password", :with => user.password
       click_button "Create User"

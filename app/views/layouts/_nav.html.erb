@@ -19,7 +19,7 @@
 				
         <ul id="utility-nav" class="nav pull-right">
 					<% if current_user %>
-						<li><%= link_to "Welcome back, #{current_user.email}", lessons_path %></a></li>
+						<li><%= link_to "Welcome back, #{current_user.name}", lessons_path %></a></li>
         		<li><%= link_to "Log Out", logout_path %></li>
 					<% else %>
 						<li><%= link_to "Log In", login_path %></li>

@@ -22,6 +22,7 @@ describe "Sign up" do
   
   describe "success" do
     it "signs up a new user and logs them in on signup" do
+      fill_in "Name", :with => "Dee Dee Ramone"
       fill_in "Email", :with => "deedee@ramones.com"
       fill_in "Password", :with => "rockawaybeach"
       click_button "Create User"
@@ -36,6 +37,7 @@ describe "Sign up" do
   describe "failure" do
     it "doesn't make a new user when signup fields are blank" do
       visit signup_path
+      fill_in "Name",        :with => ""
       fill_in "Email",        :with => ""
       fill_in "Password",     :with => ""
       click_button "Create User"
