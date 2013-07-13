@@ -6,7 +6,8 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th></th>
+      <th>Image</th>
+			<th></th>
       <th></th>
       <th></th>
     </tr>
@@ -16,7 +17,7 @@
     <% @photos.each do |photo| %>
       <tr>
         <td><%= photo.name %></td>
-
+				<td><%= image_tag photo.image_url(:preview).to_s %></td>
 				<% if can? :update, @photo %>
         	<td><%= link_to 'Show', photo %></td>
         	<td><%= link_to 'Edit', edit_photo_path(photo) %></td>

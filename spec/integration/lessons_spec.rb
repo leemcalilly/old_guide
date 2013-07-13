@@ -13,6 +13,20 @@ describe "Lessons" do
         page.should have_link("Destroy")
         page.should have_link("New Lesson")
       end
+      
+      it "has the right content for admin users" do
+        @lesson = Lesson.last
+        page.should have_content(@lesson.title)
+        page.should have_content(@lesson.date)
+        page.should have_content(@lesson.description)
+        page.should have_content(@lesson.level)
+        page.should have_content(@lesson.topic)
+        page.should have_content(@lesson.genre)
+        page.should have_content(@lesson.article)
+        page.should have_content(@lesson.video)
+        page.should have_content(@lesson.resources)
+        page.should have_content(@lesson.visibility)
+      end
     end # /admin
     
     describe "normal users" do
@@ -47,6 +61,20 @@ describe "Lessons" do
         page.should_not have_link("Edit")
         page.should_not have_link("Destroy")
         page.should_not have_link("New Lesson")
+      end
+      
+      it "has the right content for normal users" do
+        @lesson = Lesson.last
+        page.should have_content(@lesson.title)
+        page.should have_content(@lesson.date)
+        page.should have_content(@lesson.description)
+        page.should have_content(@lesson.level)
+        page.should have_content(@lesson.topic)
+        page.should have_content(@lesson.genre)
+        page.should have_content(@lesson.article)
+        page.should have_content(@lesson.video)
+        page.should have_content(@lesson.resources)
+        page.should have_content(@lesson.visibility)
       end
     end # /normal
     
@@ -126,12 +154,28 @@ describe "Lessons" do
   describe "Show" do
     
     describe "admin users" do
-      it "shows the right links to admin users on the show page" do
+      before(:each) do
         create_new_lesson
-        @lesson = Lesson.last    
+        @lesson = Lesson.last
         visit lesson_path(@lesson)
+      end
+      
+      it "shows the right links to admin users on the show page" do 
         page.should have_link("Edit")
         page.should have_link("Back")
+      end
+      
+      it "has the right content for admin users" do
+        page.should have_content(@lesson.title)
+        page.should have_content(@lesson.date)
+        page.should have_content(@lesson.description)
+        page.should have_content(@lesson.level)
+        page.should have_content(@lesson.topic)
+        page.should have_content(@lesson.genre)
+        page.should have_content(@lesson.article)
+        page.should have_content(@lesson.video)
+        page.should have_content(@lesson.resources)
+        page.should have_content(@lesson.visibility)
       end
     end # /admin
     
@@ -165,6 +209,20 @@ describe "Lessons" do
         visit lesson_path(@lesson)
         page.should_not have_link("Edit")
         page.should_not have_link("Back")
+      end
+      
+      it "has the right content for normal users" do
+        visit lesson_path(@lesson)
+        page.should have_content(@lesson.title)
+        page.should have_content(@lesson.date)
+        page.should have_content(@lesson.description)
+        page.should have_content(@lesson.level)
+        page.should have_content(@lesson.topic)
+        page.should have_content(@lesson.genre)
+        page.should have_content(@lesson.article)
+        page.should have_content(@lesson.video)
+        page.should have_content(@lesson.resources)
+        page.should have_content(@lesson.visibility)
       end
     end # /normal
     

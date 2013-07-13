@@ -35,6 +35,11 @@ describe "photos" do
         page.should have_content("Photos")
         page.should have_content(@photo.name)
       end
+      
+      it "has the right content" do
+        page.should have_content(@photo.name)
+        page.should have_content(@photo.image)
+      end
     end # /admin
     
     describe "normal users" do     
@@ -132,6 +137,11 @@ describe "photos" do
 
       it "has the right body id on the show photo page" do
         page.should have_css('body#show')
+      end
+      
+      it "has the right content" do
+        page.should have_content(@photo.name)
+        page.should have_content(@photo.image)
       end
     end # /admin
     
