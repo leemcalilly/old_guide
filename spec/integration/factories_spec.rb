@@ -73,4 +73,16 @@ describe "Factories" do
       page.should have_content("Lesson created!")
     end
   end
+  
+  describe "Photo" do
+    it "has a valid photos factory" do
+      photo = FactoryGirl.create(:photo)
+      photo.should be_valid
+    end
+  
+    it "has a working create_new_photo utility method" do
+      create_new_photo
+      page.should have_content("Photo created!")
+    end
+  end
 end

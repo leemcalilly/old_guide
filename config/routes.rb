@@ -1,5 +1,7 @@
 Guide::Application.routes.draw do
   
+  resources :photos
+
   resources :users
   resources :sessions
   resources :password_resets

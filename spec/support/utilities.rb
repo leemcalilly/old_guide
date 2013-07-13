@@ -2,7 +2,7 @@ require 'spec_helper'
 
 def create_new_lesson
   signup_and_login_admin
-  visit new_lesson_path
+  visit 'lessons/new'
   @new_lesson = FactoryGirl.build(:lesson)
   fill_in "Title", :with => "How to Play a G Chord"
   select "2013", :from => "lesson_date_1i"
@@ -21,9 +21,18 @@ def create_new_lesson
   page.should have_content("Lesson created!")
 end
 
+def create_new_photo
+  signup_and_login_admin
+  visit 'photos/new'
+  @new_photo = FactoryGirl.build(:photo)
+  fill_in "Name", :with => @new_photo.name
+  click_button "Create Photo"
+  page.should have_content("Photo created!")
+end
+
 def signup_and_login
   user = FactoryGirl.build(:user)
-  visit signup_path
+  visit '/signup'
   fill_in "Name", :with => user.name
   fill_in "Email", :with => user.email
   fill_in "Password", :with => user.password
@@ -34,7 +43,7 @@ end
 
 def signup_and_login_admin
   user = FactoryGirl.build(:user)
-  visit signup_path
+  visit '/signup'
   fill_in "Name", :with => user.name
   fill_in "Email", :with => user.email
   fill_in "Password", :with => user.password

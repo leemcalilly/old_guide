@@ -57,6 +57,7 @@
   <%= @lesson.visibility %>
 </p>
 
-
-<%= link_to 'Edit', edit_lesson_path(@lesson) %> |
-<%= link_to 'Back', lessons_path %>
+<% if can? :update, @lesson %>
+	<%= link_to 'Edit', edit_lesson_path(@lesson) %> |
+	<%= link_to 'Back', lessons_path %>
+<% end %>
