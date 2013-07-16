@@ -1,10 +1,9 @@
-<% provide(:title, @photo.name ) %>
+<% provide(:title, "View Photo" ) %>
 
 <p id="notice"><%= notice %></p>
 
 <p>
   <strong>Name:</strong>
-  <%= @photo.name %>
   <%= image_tag @photo.image_url(:full).to_s %>
 </p>
 
