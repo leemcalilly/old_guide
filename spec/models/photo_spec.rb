@@ -10,10 +10,10 @@ describe Photo do
     @photo.should be_valid
   end
   
-  it { should respond_to(:name) }
+  it { should respond_to(:image) }
   
-  describe "when the name is blank" do
-    before { @photo.name = nil }
+  describe "when the image is blank" do
+    before { @photo.image = nil }
     it { should_not be_valid }
   end
 

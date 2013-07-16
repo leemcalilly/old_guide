@@ -24,6 +24,6 @@ FactoryGirl.define do
   end
   
   factory :photo do
-    name    "G Chord Illustration"
+    image    "g-chord.jpg"
   end
 end

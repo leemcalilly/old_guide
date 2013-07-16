@@ -25,7 +25,6 @@ def create_new_photo
   signup_and_login_admin
   visit 'photos/new'
   @new_photo = FactoryGirl.build(:photo)
-  fill_in "Name", :with => @new_photo.name
   click_button "Create Photo"
   page.should have_content("Photo created!")
 end

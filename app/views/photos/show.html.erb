@@ -4,7 +4,7 @@
 
 <p>
   <strong>Name:</strong>
-  <%= image_tag @photo.image_url(:full).to_s %>
+  <%= image_tag @photo.image_url(:large).to_s %>
 </p>
 
 <%= link_to 'Edit', edit_photo_path(@photo) %> |

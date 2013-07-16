@@ -7,6 +7,7 @@ class PhotosController < ApplicationController
   # GET /photos
   def index
     @photos = Photo.all
+    @photo = Photo.new
   end
 
   # GET /photos/1
@@ -28,7 +29,7 @@ class PhotosController < ApplicationController
 
     respond_to do |format|
       if @photo.save
-        format.html { redirect_to @photo, notice: 'Photo created!' }
+        format.html { redirect_to photos_url, notice: 'Photo created!' }
       else
         format.html { render action: 'new' }
       end

@@ -33,11 +33,10 @@ describe "photos" do
       it "shows photos to admin users on the index page" do
         current_path.should == '/photos'
         page.should have_content("Photos")
-        page.should have_content(@photo.name)
+        page.should have_content(@photo.image)
       end
       
       it "has the right content" do
-        page.should have_content(@photo.name)
         page.should have_content(@photo.image)
       end
     end # /admin
@@ -71,7 +70,6 @@ describe "photos" do
       
       it "allows admin users to create new photos" do
         @new_photo = FactoryGirl.build(:photo)
-        fill_in "Name", :with => "G Chord Illustration"
         click_button "Create Photo"
         page.should have_content("Photo created!")
       end
@@ -128,7 +126,7 @@ describe "photos" do
       end
 
       it "has the right title on the photo show page" do
-        page.should have_title("#{@photo.name}" + " < The Fuzz Guide to Guitar")
+        page.should have_title("View Photo < The Fuzz Guide to Guitar")
       end
 
       it "has the right body class on the show photo page" do
@@ -140,7 +138,6 @@ describe "photos" do
       end
       
       it "has the right content" do
-        page.should have_content(@photo.name)
         page.should have_content(@photo.image)
       end
     end # /admin
@@ -185,8 +182,8 @@ describe "photos" do
       end
       
       it "allows admin users to edit photos" do
+        pending
         page.should have_content("Edit Photo")
-        fill_in "Name", :with => "Changing the Name"
         click_button "Update Photo"
         page.should have_content("Photo updated!")
       end
