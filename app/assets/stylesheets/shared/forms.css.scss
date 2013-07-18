@@ -1,0 +1,10 @@
+@import 'variables';
+
+input[type="file"] {
+	line-height: 18px;
+}
+
+legend {
+	color: $navy;
+	margin-bottom: 20px;
+}

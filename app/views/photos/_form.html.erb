@@ -11,12 +11,12 @@
     </div>
   <% end %>
 
-	<div class="field">
-		<%= f.label :image %><br>
-	  <%= f.file_field :image %>
-	</div>
+	<fieldset>
+		<legend>Upload a Photo</legend>
+		<div class="field">
+			<%= f.file_field :image %>
+		</div>				
+	</fieldset>	
 	
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+	<%= f.submit "Upload Photo", :class => "btn btn-small" %>
 <% end %>

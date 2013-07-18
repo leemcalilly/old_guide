@@ -19,8 +19,16 @@ describe ApplicationHelper do
     app_name == "The Fuzz Guide to Guitar"
   end
   
-  it "has the right domain name" do
+  it "has the right app domain name" do
     app_domain == "fuzzguide.com"
+  end
+  
+  it "has the right company name" do
+    system_email == "Original Fuzz"
+  end
+  
+  it "has the right company url" do
+    company_url === "http://www.originalfuzz.com"
   end
   
   it "has the right system email" do

@@ -3,30 +3,31 @@
 <section class="upload-photo">
 	<div class="row">
 		<div class="span12">
-			<% if can? :create, @photo %>			
-				<%= link_to 'New Photo', new_photo_path %>
+			<% if can? :create, @photo %>		
 				<%= render 'form' %>
 			<% end %>
 		</div>
 	</div>
 </section>
-<hr>
+
 <section class="browse-photos">
 	<div class="row">
 		<div class="span12">
 			<div class="row">
 				<% @photos.each do |photo| %>
-					<div class="span4">
-						<%= link_to image_tag(photo.image_url(:medium).to_s), photo %>
+					<div class="image-preview span4">
+						<%= link_to image_tag(photo.image_url(:small).to_s), photo %>						
 						<p>
-							<% if can? :update, @photo %>
-								<%= link_to 'Edit', edit_photo_path(photo) %>
-							<% end %>
-
-							<% if can? :destroy, @photo %>
-			        	<%= link_to 'Delete', photo, method: :delete, data: { confirm: 'Are you sure?' } %>
-			     		<% end %>
+							URL:
+							<input value="<%= photo.image_url(:large) %>" class="select-all-on-click">
 						</p>
+							
+						<% if can? :destroy, @photo %>
+							<p>
+								<%= link_to 'View', photo_path(photo) %> |
+								<%= link_to 'Delete', photo, method: :delete, data: { confirm: 'Are you sure?' } %>
+							</p>
+						<% end %>
 					</div>
 	    	<% end %>
 			</div>

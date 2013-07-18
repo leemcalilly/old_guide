@@ -1,11 +1,37 @@
 <% provide(:title, "View Photo" ) %>
 
-<p id="notice"><%= notice %></p>
+<section class="view-photo">
+	<div class="page-header">
+		<h1>Photo Preview</h1>
+	</div>
+		
+	<p>
+		<%= image_tag @photo.image_url(:large).to_s %>
+	</p>
+	
+	<div class="row">		
+		<div class="span4">
+			<p>
+				Large:<br>
+				<input value="<%= @photo.image_url(:large) %>" class="select-all-on-click">
+			</p>			
+		</div>
+		
+		<div class="span4">
+			<p>
+				Medium:<br>
+				<input value="<%= @photo.image_url(:medium) %>" class="select-all-on-click">
+			</p>
+		</div>
+		
+		<div class="span4">
+			<p>
+				Small:<br>
+				<input value="<%= @photo.image_url(:small) %>" class="select-all-on-click">
+			</p>
+		</div>
+	</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= image_tag @photo.image_url(:large).to_s %>
-</p>
-
-<%= link_to 'Edit', edit_photo_path(@photo) %> |
-<%= link_to 'Back', photos_path %>
+	<hr>
+	<p><%= link_to 'Delete', @photo, method: :delete, data: { confirm: 'Are you sure?' } %> | <%= link_to 'Back to All Photos', photos_path %></p>
+</section>

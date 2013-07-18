@@ -14,15 +14,6 @@ class PhotosController < ApplicationController
   def show
   end
 
-  # GET /photos/new
-  def new
-    @photo = Photo.new
-  end
-
-  # GET /photos/1/edit
-  def edit
-  end
-
   # POST /photos
   def create
     @photo = Photo.new(photo_params)

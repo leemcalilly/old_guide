@@ -1,19 +1,12 @@
 require 'spec_helper'
 
-describe "Lessons" do
-  
-  describe "Index" do
-    
-    describe "admin users" do
-      it "shows the right links to admin users on the index page" do
-        create_new_lesson
-        visit '/lessons'
-        page.should have_link("Show")
-        page.should have_link("Edit")
-        page.should have_link("Destroy")
-        page.should have_link("New Lesson")
+describe "Lessons" do  
+  describe "Index" do  
+    describe "admin" do
+      it "has the right title" do
+        pending
       end
-      
+
       it "has the right content for admin users" do
         @lesson = Lesson.last
         page.should have_content(@lesson.title)
@@ -27,9 +20,22 @@ describe "Lessons" do
         page.should have_content(@lesson.resources)
         page.should have_content(@lesson.visibility)
       end
-    end # /admin
+        
+      it "shows the right links to admin users on the index page" do
+        create_new_lesson
+        visit '/lessons'
+        page.should have_link("Show")
+        page.should have_link("Edit")
+        page.should have_link("Destroy")
+        page.should have_link("New Lesson")
+      end
+      
+      it "has working links" do
+        pending
+      end      
+    end
     
-    describe "normal users" do
+    describe "students" do
       before(:each) do 
         create_new_lesson
         visit logout_path
@@ -38,7 +44,7 @@ describe "Lessons" do
         visit '/lessons'
       end
       
-      it "shows lessons to all logged in users on the index page" do
+      it "shows lessons to all student users on the index page" do
         current_path.should == '/lessons'
         page.should have_content("Lessons")
         page.should have_content(@lesson.title)
@@ -56,14 +62,14 @@ describe "Lessons" do
         page.should have_css('body#index')
       end
       
-      it "shows the right links to normal users on the index page" do
+      it "shows the right links to student users on the index page" do
         page.should have_link("Show")
         page.should_not have_link("Edit")
         page.should_not have_link("Destroy")
         page.should_not have_link("New Lesson")
       end
       
-      it "has the right content for normal users" do
+      it "has the right content for student users" do
         @lesson = Lesson.last
         page.should have_content(@lesson.title)
         page.should have_content(@lesson.date)
@@ -76,23 +82,20 @@ describe "Lessons" do
         page.should have_content(@lesson.resources)
         page.should have_content(@lesson.visibility)
       end
-    end # /normal
+    end
     
-    describe "public users" do
-      it "denies non-logged in users access to lessons" do
+    describe "public" do
+      it "denies public users access to lessons" do
         visit '/lessons'
         within("div.alert.alert-error") do
           page.should have_content("First log in to view this page.")
         end
       end
-    end # /public
-    
-  end # /Index
-  
+    end
+  end
   
   describe "New" do
-    
-    describe "admin users" do
+    describe "admin" do
       before(:each) do
         signup_and_login_admin
         visit '/lessons/new'
@@ -128,32 +131,30 @@ describe "Lessons" do
       it "has the right body id on the new lesson page" do
         page.should have_css('body#new')
       end
-    end # /admin
+    end
     
-    describe "normal users" do
-      it "doesn't allow normal users to create lessons" do
+    describe "students" do
+      it "doesn't allow student users to create lessons" do
         signup_and_login
         visit '/lessons/new'
         within('div.alert.alert-error') do
           page.should have_content("Whoops! You don't have permission to access this.")
         end
       end
-    end # /normal
+    end
   
-    describe "public users" do
-      it "denies non-logged in users access to create lessons" do
+    describe "public" do
+      it "denies public users access to create lessons" do
         visit '/lessons/new'
         within("div.alert.alert-error") do
           page.should have_content("First log in to view this page.")
         end
       end
-    end # /public
-    
-  end # /New
+    end
+  end
   
   describe "Show" do
-    
-    describe "admin users" do
+    describe "admin" do
       before(:each) do
         create_new_lesson
         @lesson = Lesson.last
@@ -177,9 +178,9 @@ describe "Lessons" do
         page.should have_content(@lesson.resources)
         page.should have_content(@lesson.visibility)
       end
-    end # /admin
+    end
     
-    describe "normal users" do
+    describe "students" do
       before(:each) do
         create_new_lesson
         visit logout_path
@@ -205,13 +206,13 @@ describe "Lessons" do
         page.should have_css('body#show')
       end
       
-      it "shows the right links to normal users on the show page" do 
+      it "shows the right links to student users on the show page" do 
         visit lesson_path(@lesson)
         page.should_not have_link("Edit")
         page.should_not have_link("Back")
       end
       
-      it "has the right content for normal users" do
+      it "has the right content for student users" do
         visit lesson_path(@lesson)
         page.should have_content(@lesson.title)
         page.should have_content(@lesson.date)
@@ -224,22 +225,20 @@ describe "Lessons" do
         page.should have_content(@lesson.resources)
         page.should have_content(@lesson.visibility)
       end
-    end # /normal
+    end
     
-    describe "public users" do
-      it "denies non-logged in users access to view lessons" do  
+    describe "public" do
+      it "denies public users access to view lessons" do  
         visit lesson_path(@lesson)
         within("div.alert.alert-error") do
           page.should have_content("First log in to view this page.")
         end
       end
-    end # /public
-    
-  end # /show
+    end
+  end
   
   describe "Edit" do
-    
-    describe "admin users" do
+    describe "admin" do
       before(:each) do
         signup_and_login_admin
         FactoryGirl.create(:lesson)
@@ -266,15 +265,15 @@ describe "Lessons" do
       it "has the right body id on the show lesson page" do
         page.should have_css('body#edit')
       end
-    end # /admin
+    end
     
-    describe "normal users" do
+    describe "students" do
       before(:each) do
         create_new_lesson
         visit logout_path
       end
       
-      it "doesn't allow normal users to edit lessons" do
+      it "doesn't allow student users to edit lessons" do
         signup_and_login
         @lesson = Lesson.last
         visit edit_lesson_path(@lesson)
@@ -284,13 +283,13 @@ describe "Lessons" do
         end
       end
       
-      it "doesn't show normal users edit links" do
+      it "doesn't show student users edit links" do
         visit '/lessons'
         page.should_not have_link("Edit")
       end
-    end # /normal
+    end
     
-    describe "public users" do
+    describe "public" do
       before(:each) do
         create_new_lesson
         visit logout_path
@@ -304,17 +303,16 @@ describe "Lessons" do
         end
       end
       
-      it "doesn't show normal users edit links" do
+      it "doesn't show student users edit links" do
         visit '/lessons'
         page.should_not have_link("Edit")
       end
-    end # /public
-    
-  end  # /Edit
+    end
+  end
   
   
   describe "Delete" do
-    describe "admin users" do
+    describe "admin" do
       before(:each) do
         signup_and_login_admin
         FactoryGirl.create(:lesson)
@@ -330,7 +328,7 @@ describe "Lessons" do
       end
     end
     
-    describe "normal users" do
+    describe "students" do
       before(:each) do
         signup_and_login
         FactoryGirl.create(:lesson)
@@ -338,19 +336,19 @@ describe "Lessons" do
         visit '/lessons'
       end
       
-      it "doesn't allow normal users to delete lessons" do
+      it "doesn't allow student users to delete lessons" do
         expect { delete lesson_path(@lesson), {},
            'HTTP_COOKIE' =>
            "#{Capybara.current_session.driver.response.headers["Set-Cookie"]}" }.
             to change(Lesson, :count).by(0)
       end
       
-      it "doesn't show normal users delete links" do
+      it "doesn't show student users delete links" do
         page.should_not have_link("Destroy")
       end
     end
       
-    describe "public users" do
+    describe "public" do
       before(:each) do
         create_new_lesson
         visit logout_path
@@ -360,9 +358,6 @@ describe "Lessons" do
       it "doesn't show delete links to public users" do
         page.should_not have_link("Destroy")
       end
-    end # /Public
-    
-  end # /Delete
-
-   
-end # /Lessons
+    end
+  end
+end
