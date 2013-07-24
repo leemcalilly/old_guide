@@ -81,7 +81,6 @@ describe "Factories" do
     end
   
     it "has a working create_new_photo utility method" do
-      pending
       create_new_photo
       page.should have_content("Photo created!")
     end
