@@ -3,6 +3,11 @@ require 'spec_helper'
 describe "Lessons" do  
   describe "Index" do  
     describe "admin" do
+      before(:each) do
+        create_new_lesson
+        visit '/lessons'
+      end
+      
       it "has the right title" do
         pending
       end
@@ -22,8 +27,6 @@ describe "Lessons" do
       end
         
       it "shows the right links to admin users on the index page" do
-        create_new_lesson
-        visit '/lessons'
         page.should have_link("Show")
         page.should have_link("Edit")
         page.should have_link("Destroy")

@@ -22,7 +22,7 @@ class PhotosController < ApplicationController
       if @photo.save
         format.html { redirect_to photos_url, notice: 'Photo created!' }
       else
-        format.html { render action: 'new' }
+        format.html { render action: 'index' }
       end
     end
   end

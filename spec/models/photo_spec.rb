@@ -3,7 +3,11 @@ require 'spec_helper'
 describe Photo do
     
   before(:each) do
-    @photo = FactoryGirl.create(:photo)
+    create_new_photo
+    @photo = Photo.last
+    @attr = { 
+      :image => "#{Rails.root}/spec/support/images/example.jpg"
+    }
   end
   
   it "has a valid factory" do
