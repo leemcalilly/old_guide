@@ -6,8 +6,8 @@ class PhotosController < ApplicationController
 
   # GET /photos
   def index
-    @photos = Photo.all
-    @photo = Photo.new
+    @photos = Photo.order('created_at DESC').to_a  
+    @photo = Photo.new    
   end
 
   # GET /photos/1

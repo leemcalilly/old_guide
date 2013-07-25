@@ -9,7 +9,7 @@ describe "Lessons" do
       end
       
       it "has the right title" do
-        pending
+        page.should have_title("Lessons < The Fuzz Guide to Guitar")
       end
 
       it "has the right content for admin users" do

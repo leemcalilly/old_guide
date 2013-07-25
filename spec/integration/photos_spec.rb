@@ -4,15 +4,65 @@ describe "photos" do
   describe "Index" do
     describe "admin" do
       it "has the right title" do
-        pending
+        create_new_photo
+        visit '/photos'
+        page.should have_title("Photos < The Fuzz Guide to Guitar")
       end
       
       it "has the right content" do
-        pending
+        create_new_photo
+        visit '/photos'
+        photo = Photo.last
+        page.should have_content("Upload a Photo")
+        page.should have_button("Upload Photo")
+        page.should have_css(".image-preview")
+        page.should have_css(".image-preview")
+        page.should have_content("URL:")
+        page.should have_content(photo.image_identifier)
+        page.should have_link("View")
+        page.should have_link("Delete")
       end
       
-      it "has working links" do
-        pending
+      it "has a working view photo link" do
+        create_new_photo
+        visit '/photos'
+        click_link("View")
+        page.should have_content("Photo Preview")
+      end
+      
+      it "has a working delete photo link" do
+        create_new_photo
+        visit '/photos'
+        expect { click_link "Delete" }.to change(Photo, :count).by(-1)
+      end
+      
+      it "orders photos in reverse chronlogical order by created_at" do
+        signup_and_login_admin
+        visit '/photos'
+        attach_file("photo[image]", "#{Rails.root}/spec/support/images/example_1.jpg")
+        click_button "Upload Photo"
+        current_path == "/photos"
+        first_photo = Photo.last
+        visit '/photos'
+        attach_file("photo[image]", "#{Rails.root}/spec/support/images/example_2.jpg")
+        click_button "Upload Photo"
+        current_path == "/photos"
+        second_photo = Photo.last
+        visit '/photos'
+        attach_file("photo[image]", "#{Rails.root}/spec/support/images/example_3.jpg")
+        click_button "Upload Photo"
+        current_path == "/photos"
+        third_photo = Photo.last
+        visit '/photos'
+        within(".browse-photos > .row .image-preview:nth-child(1)") do
+          page.should have_content(third_photo.image_identifier)
+        end
+        within(".browse-photos > .row .image-preview:nth-child(2)") do
+          page.should have_content(second_photo.image_identifier)
+        end
+        within(".browse-photos > .row .image-preview:nth-child(3)") do
+          page.should have_content(first_photo.image_identifier)
+        end
       end
     end
     
