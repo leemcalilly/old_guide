@@ -23,10 +23,10 @@ end
 
 def create_new_photo
   signup_and_login_admin
-  visit 'photos/new'
-  @new_photo = FactoryGirl.build(:photo)
-  fill_in "Name", :with => @new_photo.name
-  click_button "Create Photo"
+  visit '/photos'
+  attach_file("photo[image]", "#{Rails.root}/spec/support/images/example.jpg")
+  click_button "Upload Photo"
+  current_path == "/photos"
   page.should have_content("Photo created!")
 end
 

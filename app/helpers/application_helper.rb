@@ -12,6 +12,14 @@ module ApplicationHelper
     'hello@originalfuzz.com'
   end
   
+  def company_name
+    'Original Fuzz'
+  end
+  
+  def company_url
+    'http://www.originalfuzz.com'
+  end
+  
   # Returns the full title on a per-page basis.
   def full_title(page_title)
     base_title = "#{app_name}"

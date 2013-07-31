@@ -6,20 +6,12 @@ class PhotosController < ApplicationController
 
   # GET /photos
   def index
-    @photos = Photo.all
+    @photos = Photo.order('created_at DESC').to_a  
+    @photo = Photo.new    
   end
 
   # GET /photos/1
   def show
-  end
-
-  # GET /photos/new
-  def new
-    @photo = Photo.new
-  end
-
-  # GET /photos/1/edit
-  def edit
   end
 
   # POST /photos
@@ -28,9 +20,9 @@ class PhotosController < ApplicationController
 
     respond_to do |format|
       if @photo.save
-        format.html { redirect_to @photo, notice: 'Photo created!' }
+        format.html { redirect_to photos_url, notice: 'Photo created!' }
       else
-        format.html { render action: 'new' }
+        format.html { render action: 'index' }
       end
     end
   end
@@ -62,6 +54,6 @@ class PhotosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def photo_params
-      params.require(:photo).permit(:name, :image)
+       params.require(:photo).permit(:image)
     end
 end

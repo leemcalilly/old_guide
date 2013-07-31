@@ -1,0 +1,21 @@
+@import 'variables';
+
+section {
+	padding-bottom: 30px;
+}
+
+.page-header {
+	color: $gray;
+	border-bottom: 1px solid $borderGray;
+	padding-bottom: 0;
+	margin-top: 0;
+	margin-bottom: 20px;
+	
+	h1 {
+		font-size: 21px;
+		line-height: 40px;
+		font-weight: normal;
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+}
