@@ -11,7 +11,7 @@ describe "Public" do
     
     it "has the right content" do
       visit '/'
-      page.should have_content("The Fuzz Guide to Guitar")
+      page.should have_content("A Better Guitar Method")
     end
     
     it "has the right title" do

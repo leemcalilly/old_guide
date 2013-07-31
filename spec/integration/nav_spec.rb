@@ -24,17 +24,21 @@ describe "Navbar" do
     it "has a working brand link" do
       click_link("The Fuzz Guide")
       current_path.should == "/"
-      page.should have_content("Home")
+      page.should have_content("A Better Guitar Method")
     end
     
     it "has a working signup link" do
-      click_link("Sign Up")
+      within('#utility-nav') do
+        click_link("Sign Up")
+      end
       current_path.should == "/signup"
       page.should have_content("Sign Up")
     end
     
     it "has a working login link" do
-      click_link("Log In")
+      within('#utility-nav') do
+        click_link("Log In")
+      end
       current_path.should == "/login"
       page.should have_content("Log In")
     end

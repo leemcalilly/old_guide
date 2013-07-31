@@ -198,7 +198,7 @@ describe "photos" do
   end
   
   describe "Show" do
-    describe "admin" do      
+    describe "admin" do   
       it "has the right title" do
         create_new_photo
         @photo = Photo.last
@@ -213,20 +213,45 @@ describe "photos" do
         page.should have_content(@photo.image_identifier)
       end
       
-      it "has working links" do
-        pending
+      it "has a working delete link" do
+        create_new_photo
+        @photo = Photo.last
+        visit photo_path(@photo)
+        expect { click_link "Delete" }.to change(Photo, :count).by(-1)
+      end
+      
+      it "has a working back to all photos link" do
+        create_new_photo
+        @photo = Photo.last
+        visit photo_path(@photo)
+        click_link("Back to All Photos")
+        current_path == "/photos"
+        page.should have_content("Upload a Photo")
       end
     end
     
     describe "students" do
       it "denies access to student users" do
-        pending
+        create_new_photo
+        @photo = Photo.last
+        visit logout_path
+        signup_and_login
+        visit photo_path(@photo)
+        within('div.alert.alert-error') do
+          page.should have_content("Whoops! You don't have permission to access this.")
+        end
       end
     end
     
     describe "public" do
       it "denies access to public users" do
-        pending
+        create_new_photo
+        @photo = Photo.last
+        visit logout_path
+        visit photo_path(@photo)
+        within("div.alert.alert-error") do
+          page.should have_content("First log in to view this page.")
+        end
       end
     end
   end
