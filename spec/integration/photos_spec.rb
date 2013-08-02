@@ -131,9 +131,9 @@ describe "photos" do
         click_button "Upload Photo"
         current_path == "/photos"
         page.should_not have_content("Photo created!")
-        page.should have_content('You are not allowed to upload "tiff" files, allowed types: jpg, jpeg, gif, png')
+        page.should have_content('Image can\'t be a "tiff" file, allowed types: jpg, jpeg, gif, png')
       end
-      
+
       it "doesn't allow you to upload without an image" do
         pending
         click_button "Upload Photo"
