@@ -133,6 +133,13 @@ describe "photos" do
         page.should_not have_content("Photo created!")
         page.should have_content('Image can\'t be a "tiff" file, allowed types: jpg, jpeg, gif, png')
       end
+      
+      it "doesn't allow you to upload an image that's too large" do
+        attach_file("photo[image]", "#{Rails.root}/spec/support/images/too_large.jpg")
+        click_button "Upload Photo"
+        page.should_not have_content("Photo created!")
+        page.should have_content('Image can\'t be larger than 2.5 MB')
+      end
 
       it "doesn't allow you to upload without an image" do
         pending

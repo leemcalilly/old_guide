@@ -20,5 +20,10 @@ describe Photo do
     before { @photo.image = nil }
     it { should_not be_valid }
   end
+  
+  describe "when file is too big" do
+    before { @photo.image.size > 2.5.megabytes }
+    it { should_not be_valid }
+  end
 
 end
