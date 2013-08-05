@@ -142,13 +142,14 @@ describe "photos" do
       end
 
       it "doesn't allow you to upload without an image" do
-        pending
         click_button "Upload Photo"
         page.should_not have_content("Photo created!")
       end
       
       it "redirects and shows the right error message when you try to upload without an image" do
-        pending
+        click_button "Upload Photo"
+        current_path == "/photos"
+        page.should have_content("Image can't be blank")
       end
       
       it "allows jpg files" do
