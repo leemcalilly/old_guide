@@ -6,8 +6,6 @@ class ImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::MimeTypes
   process :set_content_type
   
-  storage :fog
-
   # Create different versions of your uploaded files:
   version :small do
     process :resize_to_fill => [220, 220]
