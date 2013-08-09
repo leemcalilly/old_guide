@@ -6,6 +6,12 @@ class ImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::MimeTypes
   process :set_content_type
   
+  if Rails.env.test?
+    storage :file
+  elsif
+    storage :fog
+  end
+      
   # Create different versions of your uploaded files:
   version :small do
     process :resize_to_fill => [220, 220]
