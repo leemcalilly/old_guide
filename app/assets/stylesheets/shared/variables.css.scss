@@ -13,11 +13,14 @@ $borderGray: #e5e5e5;
 $white: #ffffff;
 $tan: #f9f0d9;
 
-$sansFontFamily: Futura, "Trebuchet MS", Arial, sans-serif;
-$serifFontFamily: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+$sansFontFamily: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$serifFontFamily: "museo-slab", Georgia, Times, "Times New Roman", serif;
 $baseFontFamily: $serifFontFamily;
 
-$headingsFontFamily: $serifFontFamily;
+$baseFontSize: 24px;
+$baseLineHeight: 32.4px;
+
+$headingsFontFamily: $sansFontFamily;
 $headingsColor: $navy;
 $linkColor: $orange;
 $textColor: $black;
@@ -27,7 +30,7 @@ $navbarBackgroundHighlight: $midnight;
 $navbarText: $lightGray;
 $navbarBrandColor: $lightGray;
 $navbarLinkColor: $lightGray;
-$navbarLinkColorHover: $tan;
+$navbarLinkColorHover: $gray;
 
 $gridColumnWidth768: 36px;
 $gridGutterWidth768: 18px;
