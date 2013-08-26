@@ -111,6 +111,14 @@ describe "Lessons" do
         end
       end
       
+      it "has the right options in the level dropdown" do
+        within("#lesson_level") do
+          page.should have_content("Beginner")
+          page.should have_content("Intermediate")
+          page.should have_content("Advanced")
+        end
+      end
+      
       it "allows admin users to create new lessons" do
         @new_lesson = FactoryGirl.build(:lesson)
         fill_in "Title", :with => "How to Play a G Chord"
@@ -119,7 +127,7 @@ describe "Lessons" do
         select "1", :from => "lesson_date_3i"
         fill_in "Description", :with => @new_lesson.description
         fill_in "Featured photo", :with => @new_lesson.featured_photo
-        fill_in "Level", :with => @new_lesson.level
+        select @new_lesson.level, :from => "Level"
         fill_in "Genre", :with => @new_lesson.genre
         fill_in "Topic", :with => @new_lesson.topic
         fill_in "Article", :with => @new_lesson.article

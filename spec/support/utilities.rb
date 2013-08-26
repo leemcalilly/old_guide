@@ -10,7 +10,7 @@ def create_new_lesson
   select "1", :from => "lesson_date_3i"
   fill_in "Description", :with => @new_lesson.description
   fill_in "Featured photo", :with => @new_lesson.featured_photo
-  fill_in "Level", :with => @new_lesson.level
+  select @new_lesson.level, :from => "Level"
   fill_in "Genre", :with => @new_lesson.genre
   fill_in "Topic", :with => @new_lesson.topic
   fill_in "Article", :with => @new_lesson.article
