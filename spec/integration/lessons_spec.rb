@@ -119,6 +119,13 @@ describe "Lessons" do
         end
       end
       
+      it "has the right options in the topic dropdown" do
+        within("#lesson_topic") do
+          page.should have_content("Fundamentals")
+          page.should have_content("Gear")
+        end
+      end
+      
       it "allows admin users to create new lessons" do
         @new_lesson = FactoryGirl.build(:lesson)
         fill_in "Title", :with => "How to Play a G Chord"
@@ -129,7 +136,7 @@ describe "Lessons" do
         fill_in "Featured photo", :with => @new_lesson.featured_photo
         select @new_lesson.level, :from => "Level"
         fill_in "Genre", :with => @new_lesson.genre
-        fill_in "Topic", :with => @new_lesson.topic
+        select @new_lesson.topic, :from => "Topic"
         fill_in "Article", :with => @new_lesson.article
         fill_in "Video", :with => @new_lesson.video
         fill_in "Resources", :with => @new_lesson.resources
