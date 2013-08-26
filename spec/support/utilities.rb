@@ -16,7 +16,7 @@ def create_new_lesson
   fill_in "Article", :with => @new_lesson.article
   fill_in "Video", :with => @new_lesson.video
   fill_in "Resources", :with => @new_lesson.resources
-  fill_in "Visibility", :with => @new_lesson.visibility
+  select @new_lesson.visibility, :from => "Visibility"
   click_button "Create Lesson"
   page.should have_content("Lesson created!")
 end

@@ -104,6 +104,13 @@ describe "Lessons" do
         visit '/lessons/new'
       end
       
+      it "has the right options in the visibility dropdown" do
+        within("#lesson_visibility") do
+          page.should have_content("Draft")
+          page.should have_content("Published")
+        end
+      end
+      
       it "allows admin users to create new lessons" do
         @new_lesson = FactoryGirl.build(:lesson)
         fill_in "Title", :with => "How to Play a G Chord"
@@ -118,7 +125,7 @@ describe "Lessons" do
         fill_in "Article", :with => @new_lesson.article
         fill_in "Video", :with => @new_lesson.video
         fill_in "Resources", :with => @new_lesson.resources
-        fill_in "Visibility", :with => @new_lesson.visibility
+        select @new_lesson.visibility, :from => "Visibility"
         click_button "Create Lesson"
         page.should have_content("Lesson created!")
       end

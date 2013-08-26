@@ -51,10 +51,12 @@
     <%= f.label :resources %><br />
     <%= f.text_area :resources %>
   </div>
+
   <div class="field">
     <%= f.label :visibility %><br />
-    <%= f.text_field :visibility %>
+		<%= f.select :visibility, [["Draft", "Draft"], ["Published", "Published"]] %> 
   </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
