@@ -11,7 +11,7 @@ def create_new_lesson
   fill_in "Description", :with => @new_lesson.description
   fill_in "Featured photo", :with => @new_lesson.featured_photo
   select @new_lesson.level, :from => "Level"
-  fill_in "Genre", :with => @new_lesson.genre
+  select @new_lesson.genre, :from => "Genre"
   select @new_lesson.topic, :from => "Topic"
   fill_in "Article", :with => @new_lesson.article
   fill_in "Video", :with => @new_lesson.video

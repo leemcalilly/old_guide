@@ -33,7 +33,8 @@
   </div>
   <div class="field">
     <%= f.label :genre %><br />
-    <%= f.text_field :genre %>
+		<%= f.select :genre, [["Blues", "Blues"], ["Bluegrass", "Bluegrass"], ["Country", "Country"], ["Metal", "Metal"], ["Pop", "Pop"], ["Psychedelic", "Psychedelic"], ["Rock and Roll", "Rock and Roll"]] %> 
+
   </div>
   <div class="field">
     <%= f.label :topic %><br />

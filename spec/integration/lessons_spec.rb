@@ -126,6 +126,18 @@ describe "Lessons" do
         end
       end
       
+      it "has the right options in the genre dropdown" do
+        within("#lesson_genre") do
+          page.should have_content("Blues")
+          page.should have_content("Bluegrass")
+          page.should have_content("Country")
+          page.should have_content("Metal")
+          page.should have_content("Pop")
+          page.should have_content("Psychedelic")
+          page.should have_content("Rock and Roll")
+        end
+      end
+      
       it "allows admin users to create new lessons" do
         @new_lesson = FactoryGirl.build(:lesson)
         fill_in "Title", :with => "How to Play a G Chord"
@@ -135,7 +147,7 @@ describe "Lessons" do
         fill_in "Description", :with => @new_lesson.description
         fill_in "Featured photo", :with => @new_lesson.featured_photo
         select @new_lesson.level, :from => "Level"
-        fill_in "Genre", :with => @new_lesson.genre
+        select @new_lesson.genre, :from => "Genre"
         select @new_lesson.topic, :from => "Topic"
         fill_in "Article", :with => @new_lesson.article
         fill_in "Video", :with => @new_lesson.video
