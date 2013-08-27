@@ -23,3 +23,11 @@ a:hover {
 .navbar {
 	font-size: 14px;
 }
+
+.wf-loading {
+	visibility: hidden;
+}
+ 
+.wf-active {
+	visibility: visible;
+}
