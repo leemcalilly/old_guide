@@ -1,28 +1,35 @@
-<div class="container">
-  <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-    <span class="icon-bar"></span>
-    <span class="icon-bar"></span>
-    <span class="icon-bar"></span>
-  </a>
-  
-  <div class="nav-collapse">
-<ul id="main-nav" class="nav">
-	<% if current_user %>
-		<li><%= link_to "The Fuzz Guide", lessons_path, :class => "brand" %></li>
-		<li><%= link_to "Lessons", lessons_path %></li>
-	<% else %>
-		<li><%= link_to "The Fuzz Guide", root_path, :class => "brand" %></li>
-	<% end %>
-</ul>
+<div id="main-nav" class="navbar navbar-default navbar-static-top">
+	<div class="container">
+		<div class="navbar-header">
+		  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			
+			<% if current_user %>
+				<%= link_to "The Fuzz Guide", lessons_path, :class => "navbar-brand" %>
+			<% else %>
+				<%= link_to "The Fuzz Guide", root_path, :class => "navbar-brand" %>
+			<% end %>
+		</div>		
+		
+		<div class="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
+				<% if current_user %>
+					<li><%= link_to "Lessons", lessons_path %></li>
+				<% end %>
+			</ul>
 
-    <ul id="utility-nav" class="nav pull-right">
-	<% if current_user %>
-		<li><%= link_to "Welcome back, #{current_user.name}", lessons_path %></a></li>
-    		<li><%= link_to "Log Out", logout_path %></li>
-	<% else %>
-		<li><%= link_to "Log In", login_path %></li>
-      	<li><%= link_to "Sign Up", signup_path %></li>
-	<% end %>
-    </ul>
-  </div>
+			<ul id="utility-nav" class="nav navbar-nav navbar-right">
+				<% if current_user %>
+					<li><%= link_to "Welcome back, #{current_user.name}", lessons_path %></a></li>
+		    	<li><%= link_to "Log Out", logout_path %></li>
+				<% else %>
+					<li><%= link_to "Log In", login_path %></li>
+		      <li><%= link_to "Sign Up", signup_path %></li>
+				<% end %>
+		   </ul>
+		</div><!--/.nav-collapse -->			
+	</div>
 </div>

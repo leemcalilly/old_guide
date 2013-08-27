@@ -13,28 +13,23 @@ $borderGray: #e5e5e5;
 $white: #ffffff;
 $tan: #f9f0d9;
 
-$sansFontFamily: "Helvetica Neue", Helvetica, Arial, sans-serif;
-$serifFontFamily: "museo-slab", Georgia, Times, "Times New Roman", serif;
-$baseFontFamily: $serifFontFamily;
+$font-family-sans-serif: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-serif: "museo-slab", Georgia, Times, "Times New Roman", serif;
+$font-family-base: $font-family-serif;
 
-$baseFontSize: 24px;
-$baseLineHeight: 32.4px;
+$font-size-base: 24px;
+$line-height-base: 1.35;
 
-$headingsFontFamily: $sansFontFamily;
+$headings-font-family: $font-family-sans-serif;
 $headingsColor: $navy;
-$linkColor: $orange;
-$textColor: $black;
+$link-color: $orange;
+$text-color: $black;
 
-$navbarBackground: $midnight;
-$navbarBackgroundHighlight: $midnight;
-$navbarText: $lightGray;
-$navbarBrandColor: $lightGray;
-$navbarLinkColor: $lightGray;
-$navbarLinkColorHover: $gray;
+$brand-primary: $lightGray;
 
-$gridColumnWidth768: 36px;
-$gridGutterWidth768: 18px;
-$gridColumnWidth: 36px;
-$gridGutterWidth: 18px;
-$gridColumnWidth1200: 36px;
-$gridGutterWidth1200: 18px;
+$navbar-default-link-color: $lightGray;
+$navbar-default-link-hover-color: $gray;
+
+$container-tablet: 728px;
+$container-desktop: 728px;
+$container-lg-desktop: 728px;
