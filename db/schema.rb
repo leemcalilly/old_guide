@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20130713152955) do
     t.string   "title"
     t.date     "date"
     t.text     "description"
-    t.string   "featured_photo"
+    t.text     "featured_photo"
     t.string   "level"
     t.string   "genre"
     t.string   "topic"
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 20130713152955) do
   end
 
   create_table "photos", force: true do |t|
-    t.string   "image"
+    t.text     "image"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

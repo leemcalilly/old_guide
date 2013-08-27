@@ -4,7 +4,7 @@ class CreateLessons < ActiveRecord::Migration
       t.string :title
       t.date :date
       t.text :description
-      t.string :featured_photo
+      t.text :featured_photo
       t.string :level
       t.string :genre
       t.string :topic

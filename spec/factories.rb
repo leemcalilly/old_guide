@@ -13,7 +13,6 @@ FactoryGirl.define do
     sequence(:title)  { |n| "Example Lesson No. #{n}"}
     date              "2013-05-19"        
     description       "In the beginning, there was the G Chord. This little fingering is the most common of all chords and is used by everyone from Jeff Mangum to Andre 3000. In this lesson you'll learn how to play this fundamental chord."    
-    featured_photo    "/images/photo.jpg"
     level             "Beginner"
     genre             "Psychedelic"
     topic             "Gear"

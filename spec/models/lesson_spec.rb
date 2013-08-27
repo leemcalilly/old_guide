@@ -3,10 +3,24 @@ require 'spec_helper'
 describe Lesson do
     
   before(:each) do
-    @lesson = FactoryGirl.create(:lesson)
-  end
+    @attr = { 
+        :title => "How to Play Guitar",
+        :date => "December 25, 2012",
+        :description => "This is a guitar lesson.",
+        :featured_photo => "/spec/support/images/example.jpg",
+        :level => "Beginner",
+        :genre => "Bluegrass",
+        :topic => "Fundamentals",
+        :article => "This article contains everything you need to know.",
+        :video => "67350589",
+        :resources => "Here are some additional resources",
+        :visibility => "Draft"
+      }
+      
+      @lesson = Lesson.create!(@attr)
+    end
   
-  it "has a valid factory" do
+  it "creates a valid lesson" do
     @lesson.should be_valid
   end
   
@@ -42,5 +56,10 @@ describe Lesson do
     Lesson.create!(@attr)
     duplicate_lesson = Lesson.new(@attr)
     duplicate_lesson.should_not be_valid
+  end
+  
+  describe "when featured photo is too big" do
+    before { @lesson.featured_photo.size > 2.5.megabytes }
+    it { should_not be_valid }
   end
 end

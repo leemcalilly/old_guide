@@ -19,7 +19,7 @@
 
 <p>
   <strong>Featured photo:</strong>
-  <%= @lesson.featured_photo %>
+	<%= image_tag @lesson.featured_photo_url(:small).to_s %>
 </p>
 
 <p>
