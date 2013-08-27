@@ -15,6 +15,14 @@ GIT
       oauth (~> 0.4.4)
       oauth2 (~> 0.8.0)
 
+GIT
+  remote: git://github.com/thomas-mcdonald/bootstrap-sass.git
+  revision: a71f09a26b2d6a56a70a2cdf26110434cd3fbdf8
+  branch: 3
+  specs:
+    bootstrap-sass (3.0.0.0)
+      sass (~> 3.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -46,8 +54,6 @@ GEM
     arel (4.0.0)
     atomic (1.1.13)
     bcrypt-ruby (3.0.1)
-    bootstrap-sass (2.3.2.1)
-      sass (~> 3.2)
     builder (3.1.4)
     cancan (1.6.10)
     capybara (2.1.0)
@@ -235,7 +241,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bootstrap-sass (~> 2.3.1)
+  bootstrap-sass!
   cancan (~> 1.6.10)
   capybara (~> 2.1.0)
   carrierwave (~> 0.9.0)
