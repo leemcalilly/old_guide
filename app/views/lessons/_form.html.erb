@@ -29,16 +29,16 @@
   </div>
   <div class="field">
     <%= f.label :level %><br />
-		<%= f.select :level, [["Beginner", "Beginner"], ["Intermediate", "Intermediate"], ["Advanced", "Advanced"]] %> 
+		<%= f.select :level, [["Beginner", "Beginner"], ["Intermediate", "Intermediate"], ["Advanced", "Advanced"]], prompt: "Select a level" %> 
   </div>
   <div class="field">
     <%= f.label :genre %><br />
-		<%= f.select :genre, [["Blues", "Blues"], ["Bluegrass", "Bluegrass"], ["Country", "Country"], ["Metal", "Metal"], ["Pop", "Pop"], ["Psychedelic", "Psychedelic"], ["Rock and Roll", "Rock and Roll"]] %> 
+		<%= f.select :genre, [["Blues", "Blues"], ["Bluegrass", "Bluegrass"], ["Country", "Country"], ["Metal", "Metal"], ["Pop", "Pop"], ["Psychedelic", "Psychedelic"], ["Rock and Roll", "Rock and Roll"]], prompt: "Select a genre" %> 
 
   </div>
   <div class="field">
     <%= f.label :topic %><br />
-    <%= f.select :topic, [["Fundamentals", "Fundamentals"], ["Gear", "Gear"]] %> 
+    <%= f.select :topic, [["Fundamentals", "Fundamentals"], ["Gear", "Gear"]], prompt: "Select a topic" %> 
   </div>
   <div class="field">
     <%= f.label :article %><br />

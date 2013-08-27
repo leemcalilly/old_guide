@@ -1,8 +1,5 @@
 source 'https://rubygems.org'
 
-# Set the ruby version for Heroku
-ruby "2.0.0"
-
 gem 'rails', '~> 4.0.0'
 gem 'pg', '~> 0.15.1'
 gem 'unicorn', '~> 4.6.2'
@@ -18,6 +15,7 @@ gem 'cancan', '~> 1.6.10'
 gem 'carrierwave', '~> 0.9.0'
 gem 'rmagick', '~> 2.13.2'
 gem 'fog', '~> 0.9.0'
+gem 'rails_12factor', '~> 0.0.2'
 
 group :assets do
   gem 'sass-rails',   '~> 4.0.0'
