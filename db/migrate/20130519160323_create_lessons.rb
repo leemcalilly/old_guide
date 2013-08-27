@@ -8,8 +8,8 @@ class CreateLessons < ActiveRecord::Migration
       t.string :level
       t.string :genre
       t.string :topic
+      t.string :video
       t.text :article
-      t.text :video
       t.text :resources
       t.string :visibility
 
