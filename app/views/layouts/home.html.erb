@@ -11,16 +11,16 @@
 
 <body id="<%= params[:action] %>" class="<%= params[:controller] %>">
 
-<%= render "layouts/nav" %>
-  
-  <div class="container">	
-		<%= render 'layouts/flash_messages' %>
-	</div>
+	<%= render "layouts/nav" %>
+
+	<%= render 'layouts/home_flash_messages' %>
 				
   <%= yield %>
 
 	<div class="container">
-		<%= render 'layouts/footer' %>
+		<div class="row">
+			<%= render 'layouts/footer' %>
+		</div>
   </div>
 
 	<%= render 'layouts/typekit' %>

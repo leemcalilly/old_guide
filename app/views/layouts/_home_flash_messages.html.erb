@@ -1,0 +1,11 @@
+<% flash.each do |level, message| %>
+	<div class="container">
+		<div class="row">
+			<div class="<%= flash_class(level) %> fade in home-flash">
+		  	<a href="#" data-dismiss="alert" class="close">×</a>
+		    <%= message %>
+		
+		  </div>
+		</div>
+	</div>
+<% end %>

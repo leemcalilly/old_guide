@@ -1,13 +1,7 @@
 @import 'variables';
 
-a:visited {
-  color: $orange;
-}
-
-a:hover {
-  color: $white;
-  background: $blue;
-  text-decoration: none;
+body {
+	font-weight: 100;
 }
 
 ::selection { 
@@ -20,8 +14,16 @@ a:hover {
   background: $blue; 
 }
 
-.navbar {
+h1, h2, h3, h4, h5, h6 {
+	color: $navy;
+}
+
+.main-nav {
 	font-size: 14px;
+}
+
+.navbar-brand {
+	font-size: 18px;
 }
 
 .wf-loading {

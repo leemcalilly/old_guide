@@ -18,18 +18,20 @@ $font-family-serif: "museo-slab", Georgia, Times, "Times New Roman", serif;
 $font-family-base: $font-family-serif;
 
 $font-size-base: 24px;
-$line-height-base: 1.35;
+$line-height-base: 1.45;
 
 $headings-font-family: $font-family-sans-serif;
 $headingsColor: $navy;
+
 $link-color: $orange;
 $text-color: $black;
+$link-color: $orange;
 
-$brand-primary: $lightGray;
+$navbar-default-link-color: $midnight;
+$navbar-default-link-hover-color: $blue;
 
-$navbar-default-link-color: $lightGray;
-$navbar-default-link-hover-color: $gray;
+$container-tablet: 654px;
+$container-desktop: 654px;
+$container-lg-desktop: 654px;
 
-$container-tablet: 728px;
-$container-desktop: 728px;
-$container-lg-desktop: 728px;
+$jumbotron-heading-color: $navy;
